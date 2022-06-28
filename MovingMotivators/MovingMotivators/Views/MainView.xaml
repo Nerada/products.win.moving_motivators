@@ -8,6 +8,11 @@
         d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -21,12 +26,15 @@
         <Label Grid.Row="0" Grid.Column="1" Content="Most similar"/>
         <Label Grid.Row="0" Grid.Column="2" Content="Least similar"/>
 
-        <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding AnalysisResult}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <views:AnalysisResultView />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            <ListBox Grid.Row="1" SelectedItem="{Binding SelectedResult}" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding AnalysisResult}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <views:AnalysisResultView />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Column="1" x:Name="_chartGrid" />
     </Grid>
 </Window>

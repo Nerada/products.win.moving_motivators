@@ -54,4 +54,8 @@ namespace MovingMotivators.Models.Calculations
 
         public List<AnalysisResult> GetAnalysisResults() => _analysisResults;
     }
+
+    public record AnalysisResult(User BaseUser, CompareResult MostSimilarUser, CompareResult LeastSimilarUser);
+
+    public record CompareResult(User OtherUser, int percentage);
 }
