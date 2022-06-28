@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
+using MovingMotivators.IOC;
+
 namespace MovingMotivators
 {
     /// <summary>
@@ -13,5 +15,10 @@ namespace MovingMotivators
     /// </summary>
     public partial class App : Application
     {
+        private void OnStartup(object sender, StartupEventArgs e)
+        {
+            CompositionRoot root = new();
+            root.Run();
+        }
     }
 }
