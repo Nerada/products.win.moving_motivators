@@ -1,4 +1,4 @@
-# Moving Motivators (No build status for private azure projects)
+# Moving Motivators [![Build Status](https://dev.azure.com/nerada/GitHub_Public/_apis/build/status/Nerada.products.win.moving_motivators?branchName=master)](https://dev.azure.com/nerada/GitHub_Public/_build/latest?definitionId=19&branchName=master)
 Shows 
 
 ## Details
