@@ -1,17 +1,16 @@
-﻿namespace MovingMotivators.Models
+﻿namespace MovingMotivators.Models;
+
+public enum Motivator
 {
-    public enum Motivator
-    {
-        Unknown,
-        Acceptance,
-        Curiosity,
-        Freedom,
-        Status,
-        Goal,
-        Honor,
-        Mastery,
-        Order,
-        Power,
-        Relatedness
-    }
+    Unknown,
+    Acceptance,
+    Curiosity,
+    Freedom,
+    Status,
+    Goal,
+    Honor,
+    Mastery,
+    Order,
+    Power,
+    Relatedness
 }

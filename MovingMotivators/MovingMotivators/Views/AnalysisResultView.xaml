@@ -15,8 +15,8 @@
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Content="{Binding BaseUser.Name}"/>
         <Label Grid.Column="1" Content="{Binding MostSimilarUser.OtherUser.Name}"/>
-        <Label Grid.Column="1" Content="{Binding MostSimilarUser.percentage}" Margin="20,0,0,0"/>
+        <Label Grid.Column="1" Content="{Binding MostSimilarUser.Percentage}" Margin="20,0,0,0"/>
         <Label Grid.Column="2" Content="{Binding LeastSimilarUser.OtherUser.Name}"/>
-        <Label Grid.Column="2" Content="{Binding LeastSimilarUser.percentage}" Margin="20,0,0,0"/>
+        <Label Grid.Column="2" Content="{Binding LeastSimilarUser.Percentage}" Margin="20,0,0,0"/>
     </Grid>
 </UserControl>

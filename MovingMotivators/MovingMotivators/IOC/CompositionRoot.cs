@@ -1,17 +1,16 @@
-﻿
-using MovingMotivators.ViewModels;
+﻿using MovingMotivators.ViewModels;
+using MovingMotivators.Views;
 
-namespace MovingMotivators.IOC
+namespace MovingMotivators.IOC;
+
+internal class CompositionRoot
 {
-    internal class CompositionRoot
+    public void Run()
     {
-        public void Run()
-        {
-            MainViewModel mainViewModel = new();
+        MainViewModel mainViewModel = new();
 
-            MainView mainView = new(mainViewModel);
+        MainView mainView = new(mainViewModel);
 
-            mainView.Show();
-        }
+        mainView.Show();
     }
 }
