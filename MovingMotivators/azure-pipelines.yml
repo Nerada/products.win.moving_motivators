@@ -27,4 +27,5 @@ stages:
   - template: templates/main.yml@devops.pipelines
     parameters:
       solutionName: 'MovingMotivators'
-      version: '1.0.0.$(Build.BuildId)'
+      version: '0.1.0.$(Build.BuildId)'
+      containsTests: 'false'
