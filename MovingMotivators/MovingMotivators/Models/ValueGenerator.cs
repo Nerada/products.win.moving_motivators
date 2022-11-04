@@ -120,6 +120,22 @@ public class ValueGenerator
             new(Motivator.Relatedness, 2)
         });
         _generatedUsers.Add(gr);
+        
+        User jo = new(_generatedUsers.Count, "Jo");
+        jo.AddMotivators(new List<MotivatorValue>
+        {
+            new(Motivator.Acceptance, 10),
+            new(Motivator.Curiosity, 3),
+            new(Motivator.Freedom, 1),
+            new(Motivator.Status, 4),
+            new(Motivator.Goal, 8),
+            new(Motivator.Honor, 6),
+            new(Motivator.Mastery, 5),
+            new(Motivator.Order, 2),
+            new(Motivator.Power, 7),
+            new(Motivator.Relatedness, 9)
+        });
+        _generatedUsers.Add(jo);
     }
 
     public ImmutableList<User> GetData() => _generatedUsers.ToImmutableList();
