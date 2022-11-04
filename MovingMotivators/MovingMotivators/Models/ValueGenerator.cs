@@ -120,7 +120,7 @@ public class ValueGenerator
             new(Motivator.Relatedness, 2)
         });
         _generatedUsers.Add(gr);
-        
+
         User jo = new(_generatedUsers.Count, "Jo");
         jo.AddMotivators(new List<MotivatorValue>
         {
