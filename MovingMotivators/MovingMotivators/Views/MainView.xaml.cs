@@ -1,4 +1,10 @@
-﻿using System;
+﻿// -----------------------------------------------
+//     Author: Ramon Bollen
+//      File: MovingMotivators.MainView.xaml.cs
+// Created on: 20220629
+// -----------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.ComponentModel;
@@ -43,10 +49,7 @@ public partial class MainView
     {
         if (e.PropertyName == nameof(MainViewModel.SelectedResult))
         {
-            if (_mainViewModel.SelectedResult is not { } selectedResult)
-            {
-                return;
-            }
+            if (_mainViewModel.SelectedResult is not { } selectedResult) return;
 
             UpdateDataPoints(selectedResult);
         }
@@ -89,7 +92,7 @@ public partial class MainView
         {
             AxisPolar motivatorAxis = new(view);
             motivatorAxis.Units.Text = motivator;
-            motivatorAxis.SetRange(0, Enum.GetNames(typeof(Motivator)).Where(m => m != Enum.GetName(Motivator.Unknown)).Count());
+            motivatorAxis.SetRange(0, Enum.GetNames(typeof(Motivator)).Count(m => m != Enum.GetName(Motivator.Unknown)));
             view.Axes.Add(motivatorAxis);
         }
 
@@ -98,19 +101,20 @@ public partial class MainView
         for (int iAxis = 0; iAxis < _attributeCount; iAxis++)
         {
             AxisPolar axis = view.Axes[iAxis];
-            axis.Title.Text                   = string.Empty;
-            axis.AngleOrigin                  = 90;
-            axis.AllowScaling                 = false;
-            axis.GridAngular.Visible          = false;
-            axis.AngularLabelsVisible         = false;
-            axis.AngularAxisCircleVisible     = false;
-            axis.UsePreviousAxisDiameter      = true;
-            axis.MajorGrid.Visible            = false;
-            axis.AxisThickness                = 1;
-            axis.MinorDivTickStyle.Visible    = false;
-            axis.AngularAxisMajorDivCount     = 0;
-            axis.AngularLabelsVisible         = false;
-            axis.AxisColor                    = Colors.Transparent;
+            axis.Title.Text                = string.Empty;
+            axis.AngleOrigin               = 90;
+            axis.AllowScaling              = false;
+            axis.GridAngular.Visible       = false;
+            axis.AngularLabelsVisible      = false;
+            axis.AngularAxisCircleVisible  = false;
+            axis.UsePreviousAxisDiameter   = true;
+            axis.MajorGrid.Visible         = false;
+            axis.AxisThickness             = 1;
+            axis.MinorDivTickStyle.Visible = false;
+            axis.AngularAxisMajorDivCount  = 0;
+            axis.AngularLabelsVisible      = false;
+            axis.AxisColor                 = Colors.Transparent;
+            // ReSharper disable once StringLiteralTypo
             axis.Units.Font                   = new WpfFont("Segoe UI", 10.0, true, false);
             axis.Units.Angle                  = 270 - dAngleStep * iAxis;
             axis.Units.RadialOffsetPercentage = 55;
@@ -275,7 +279,7 @@ public partial class MainView
     ///     Scale given attribute to master axis scale, by converting the attribute value to screen coordinate and then to
     ///     master axis range
     /// </summary>
-    private PointPolar ScaleToMasterAxis(AxisPolar attributeAxis, AxisPolar masterAxis, double value)
+    private PointPolar ScaleToMasterAxis(AxisPolarBase attributeAxis, AxisPolarBase masterAxis, double value)
     {
         PointFloat coordinate = attributeAxis.ValueToCoord(new PointPolar(0, value), false);
         return masterAxis.CoordToValue(coordinate, false);

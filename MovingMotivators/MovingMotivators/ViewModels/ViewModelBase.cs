@@ -1,4 +1,10 @@
-﻿using System.Collections.Concurrent;
+﻿// -----------------------------------------------
+//     Author: Ramon Bollen
+//      File: MovingMotivators.ViewModelBase.cs
+// Created on: 20220629
+// -----------------------------------------------
+
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -15,23 +21,19 @@ public class ViewModelBase : INotifyPropertyChanged
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
+    // ReSharper disable once UnusedMethodReturnValue.Global
     protected bool Set<T>(ref T field, T newValue, [CallerMemberName] string? propertyName = null)
     {
-        if (EqualityComparer<T>.Default.Equals(field, newValue))
-        {
-            return false;
-        }
+        if (EqualityComparer<T>.Default.Equals(field, newValue)) return false;
 
         SetAndRaisePropertyChanged(out field, newValue, propertyName);
         return true;
     }
 
+    // ReSharper disable once MemberCanBePrivate.Global
     protected void RaisePropertyChanged([CallerMemberName] string? propertyName = null)
     {
-        if (propertyName == null)
-        {
-            return;
-        }
+        if (propertyName == null) return;
 
         PropertyChanged?.Invoke(this, GetCachedPropertyChangedEventArgs(propertyName));
     }
