@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-    <PackageReference Include="LightningChart" Version="10.3.1.1" />
+    <PackageReference Include="LightningChart" Version="10.4.1.1" />
   </ItemGroup>
 
   <Target Name="SetSourceRevisionId" BeforeTargets="BeforeResGen" Condition="'$(SourceRevisionId)' == ''"> 
